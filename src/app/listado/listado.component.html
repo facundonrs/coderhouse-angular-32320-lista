@@ -1,0 +1,17 @@
+<h3>Alumnos</h3>
+
+<ol>
+	<li *ngFor="let alumno of alumnos"
+		[ngClass]="alumno.edad < 18 ? 'menor' : 'mayor'">
+		{{ alumno.apellido | uppercase }}, {{ alumno.nombre}} - <span>{{ alumno.edad }} años</span>
+	</li>
+</ol>
+
+<div *ngIf="alumnos.length < 20">
+	<div>Atención: hay menos de 20 alumnos inscriptos</div>
+	<button (click)="verCantidadInscriptosMayoresDeEdad()" class="btn">Ver cantidad de inscriptos</button>
+</div>
+
+<div *ngIf="mensaje" class="mensaje">
+	{{ mensaje }}
+</div>
